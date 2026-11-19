@@ -42,12 +42,19 @@ def index():
 @oficina_bp.route("/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
     oficina = OficinaDAO.buscar_por_id(id)
-
+    if request.method == "POST":
+        OficinaDAO.atualizar(
+            oficina,
+            titulo=request.form["titulo"],
+            instrutor=request.form["instrutor"],
+            vagas=request.form["vagas"]
+        )
+        flash("Oficina alterada.")
     # ===== ITEM 4 ====================================================
     # O formulario de edicao e enviado para esta rota por POST, mas nada
     # e gravado. Trate aqui o envio: grave a alteracao e volte a listagem.
     # =================================================================
-
+    
     return render_template("editar.html", oficina=oficina)
 
 
