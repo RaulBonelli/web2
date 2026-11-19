@@ -32,10 +32,12 @@ def index():
     # Conte aqui, na SESSAO, quantas vezes esta pessoa abriu a listagem.
     # A chave deve se chamar "consultas". O template ja exibe o valor.
     # =================================================================
+    session["consultas"] +=1
 
     return render_template("index.html", oficinas=OficinaDAO.listar())
+    
 
-
+    
 # Edicao - GET mostra o formulario preenchido
 @oficina_bp.route("/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
