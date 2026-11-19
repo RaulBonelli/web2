@@ -18,6 +18,14 @@
   <div class="assincrono">
     <button id="atualizar" type="button">atualizar lista</button>
     <p class="aviso-js" id="aviso-js"></p>
+
+    
+    {% if oficinas|length > 0 %}
+      <p>{{ oficinas|length }} registro(s).</p>
+    {% else %}
+      <p>nenhuma oficina cadastrada.</p>
+    {% endif %}
+    
   </div>
 
   <!-- ===== ITEM 2 =====================================================
