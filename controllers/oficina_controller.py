@@ -13,11 +13,18 @@ oficina_bp = Blueprint("oficina", __name__)
 # Hoje qualquer pessoa abre as paginas deste Blueprint sem entrar no
 # sistema. Escreva aqui a protecao, em um ponto so.
 # =====================================================================
+oficina_bp.before_request
+def exigir_login():
+    if not session.get("usuario_id"):
+        flash("Faca login para continuar.")
+        return redirect(url_for("auth.login"))    
 
 
 # Listagem (GET) e cadastro (POST) na mesma rota
 @oficina_bp.route("/", methods=["GET", "POST"])
 def index():
+    exigir_login()
+
     if request.method == "POST":
         oficina = Oficina(
             titulo=request.form["titulo"],

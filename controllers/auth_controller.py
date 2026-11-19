@@ -15,8 +15,7 @@ def login():
     if request.method == "POST":
         usuario = UsuarioDAO.buscar_por_email(request.form["email"])
 
-        if usuario and check_password_hash(usuario.senha_hash,
-                                           request.form["senha"]):
+        if usuario and check_password_hash(usuario.senha_hash,request.form["senha"]):
             session["usuario_id"] = usuario.id
             session["usuario_nome"] = usuario.nome
             return redirect(url_for("oficina.index"))
