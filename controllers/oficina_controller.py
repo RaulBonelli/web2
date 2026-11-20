@@ -39,7 +39,7 @@ def index():
     # Conte aqui, na SESSAO, quantas vezes esta pessoa abriu a listagem.
     # A chave deve se chamar "consultas". O template ja exibe o valor.
     # =================================================================
-    session["consultas"] +=1
+    session["consultas"] = session.get("consultas", 0) + 1
 
     return render_template("index.html", oficinas=OficinaDAO.listar())
     

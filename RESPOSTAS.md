@@ -5,14 +5,14 @@ RA:
 
 ## R1 (Item 10)
 
-Status da página  /  :
+Status da página  /  : 200
 
-Status da API  /api/oficinas  :
+Status da API  /api/oficinas  : 401
 
-Explicação:
+Explicação: Enquanto a página normal tem meu cadastro, a oficinas não, por isso 401, não tenho autorização
 
 ## R2 (Item 11)
 
-Status observado:
+Status observado: 
 
-Explicação:
+Explicação: 
