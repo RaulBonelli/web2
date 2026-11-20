@@ -13,6 +13,6 @@ Explicação: Enquanto a página normal tem meu cadastro, a oficinas não, por i
 
 ## R2 (Item 11)
 
-Status observado: 
+Status observado: 405
 
-Explicação: 
+Explicação: não tenho a autorização para usar o método
