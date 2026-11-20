@@ -43,6 +43,22 @@ if (botaoAtualizar && lista) {
     // Se nao for possivel falar com o servidor, avise na tela.
     // ================================================================
 
-  });
+    fetch("/api/oficinas", {
+      headers: {
+        "Accept": "application/json"
+      }
+    })
+      .then(function (resposta) {
 
+        return resposta.json();
+      })
+      .then(function (dados) {
+        desenharLista(dados);
+      })
+      .catch(function (erro) {
+        mostrarAviso(erro.message || "Nao foi possivel falar com o servidor.");
+      });
+
+  });
 }
+
